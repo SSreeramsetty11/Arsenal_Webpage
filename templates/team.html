@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ team.name }} Info</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #fff;
+            color: #111;
+            text-align: center;
+            padding: 30px;
+        }
+        img {
+            max-width: 100px;
+        }
+    </style>
+</head>
+<body>
+    <h1>{{ team.name }} ({{ team.code }})</h1>
+    <img src="{{ team.logo }}" alt="Team Logo">
+    <p><strong>Founded:</strong> {{ team.founded }}</p>
+    <p><strong>Country:</strong> {{ team.country }}</p>
+
+    <h2>Stadium Info</h2>
+    <p><strong>Name:</strong> {{ venue.name }}</p>
+    <p><strong>City:</strong> {{ venue.city }}</p>
+    <p><strong>Capacity:</strong> {{ venue.capacity }}</p>
+    <img src="{{ venue.image }}" alt="Stadium" style="max-width: 400px;">
+
+    <p><a href="/">Back to Home</a></p>
+</body>
+</html>

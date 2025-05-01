@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>League Standings</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 30px;
+            background-color: #f4f4f9;
+        }
+        h1 {
+            color: #e2001a;
+        }
+        table {
+            width: 80%;
+            margin: 20px auto;
+            border-collapse: collapse;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        th, td {
+            padding: 10px;
+            text-align: center;
+        }
+        th {
+            background-color: #e2001a;
+            color: white;
+        }
+        a {
+            display: block;
+            margin-top: 30px;
+            text-decoration: none;
+            color: #e2001a;
+        }
+    </style>
+</head>
+<body>
+    <h1>Premier League Standings</h1>
+    <table>
+        <tr>
+            <th>Position</th>
+            <th>Team</th>
+            <th>Points</th>
+        </tr>
+        {% for row in standings[0] %}
+        <tr>
+            <td>{{ loop.index }}</td>
+            <td>{{ row['team']['name'] }}</td>
+            <td>{{ row['points'] }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    <a href="/">Back to Home</a>
+</body>
+</html>

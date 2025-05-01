@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Arsenal F.C. Fixtures</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 30px;
+            background-color: #f4f4f9;
+        }
+        h1 {
+            color: #e2001a;
+        }
+        table {
+            width: 80%;
+            margin: 20px auto;
+            border-collapse: collapse;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        th, td {
+            padding: 10px;
+            text-align: center;
+        }
+        th {
+            background-color: #e2001a;
+            color: white;
+        }
+        a {
+            display: block;
+            margin-top: 30px;
+            text-decoration: none;
+            color: #e2001a;
+        }
+    </style>
+</head>
+<body>
+    <h1>Upcoming Fixtures</h1>
+    <table>
+        <tr>
+            <th>Opponent</th>
+            <th>Date</th>
+            <th>Time</th>
+        </tr>
+        {% for fixture in fixtures %}
+        <tr>
+            <td>{{ fixture['teams']['home']['name'] if fixture['teams']['home']['id'] == 42 else fixture['teams']['away']['name'] }}</td>
+            <td>{{ fixture['fixture']['date'][:10] }}</td>
+            <td>{{ fixture['fixture']['date'][11:16] }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    <a href="/">Back to Home</a>
+
+    
+</body>
+</html>

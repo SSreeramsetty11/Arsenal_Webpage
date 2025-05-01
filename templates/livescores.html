@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Live Scores - Arsenal F.C.</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 30px;
+            background-color: #f4f4f9;
+        }
+        h1 {
+            color: #e2001a;
+        }
+        .match {
+            margin: 20px;
+            padding: 10px;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+        .match-header {
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .score {
+            font-size: 18px;
+            color: #333;
+        }
+        .team {
+            font-weight: bold;
+            color: #e2001a;
+        }
+        a {
+            display: block;
+            margin-top: 30px;
+            text-decoration: none;
+            color: #e2001a;
+        }
+    </style>
+</head>
+<body>
+    <h1>Live Scores</h1>
+    
+    {% if live_scores %}
+        {% for match in live_scores %}
+            <div class="match">
+                <div class="match-header">
+                    {{ match['teams']['home']['name'] }} vs {{ match['teams']['away']['name'] }}
+                </div>
+                <div class="score">
+                    <span class="team">{{ match['teams']['home']['name'] }}:</span> {{ match['goals']['home'] }} |
+                    <span class="team">{{ match['teams']['away']['name'] }}:</span> {{ match['goals']['away'] }}
+                </div>
+            </div>
+        {% endfor %}
+    {% else %}
+        <p>No live matches currently.</p>
+    {% endif %}
+
+    <a href="/">Back to Home</a>
+</body>
+</html>
